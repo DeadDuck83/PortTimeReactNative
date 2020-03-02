@@ -1,6 +1,7 @@
 # PortTimeReactNative
 
 ## Follow these steps to get React Native up and running on your local.
+https://reactnative.dev/docs/getting-started
 This build uses Native CLI
 
 ## Uses Native Base:
