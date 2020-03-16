@@ -1,12 +1,37 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Left,
+  Right,
+  Body,
+  Icon,
+  Text,
+} from 'native-base';
+import MenuNavigation from './components/MenuNavigation';
+import CalendarView from './components/CalendarView';
+import FlatlistTest from './components/FlatlistTest';
 
-export default class HelloWorldApp extends Component {
+export default class App extends Component {
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>Hello, world!</Text>
-      </View>
+      <Container>
+        <Header>
+          <Left />
+          <Body>
+            <Icon name="boat" />
+          </Body>
+          <Right />
+        </Header>
+        <CalendarView />
+
+        <MenuNavigation />
+      </Container>
     );
   }
 }
