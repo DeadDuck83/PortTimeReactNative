@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, FlatList, Dimensions} from 'react-native';
 import {Col, Row, Grid} from 'react-native-easy-grid';
+import {Icon} from 'native-base';
 
 const data = [
   {key: 'A', date: 'Feb 2', shift: 'day', activeDay: false},
@@ -98,34 +99,78 @@ export default class App extends React.Component {
     styleColor = item => {
       if (item.shift === 'day') {
         console.log('day');
-        return {color: 'green'};
+        return (
+          <Row
+            style={{backgroundColor: '#efbc48', padding: 1, borderRadius: 3}}
+            size={4}>
+            <Icon name="sunny" style={{color: 'white'}} />
+          </Row>
+        );
       } else if (item.shift === 'night') {
         console.log('night');
-        return {color: 'orange'};
+        return (
+          <Row
+            style={{backgroundColor: '#463f9d', padding: 1, borderRadius: 3}}
+            size={4}>
+            <Icon name="moon" style={{color: 'white'}} />
+          </Row>
+        );
       } else if (item.shift === 'swing') {
         console.log('swing');
-        return {color: 'red'};
+        return (
+          <Row
+            style={{backgroundColor: 'pink', padding: 1, borderRadius: 3}}
+            size={4}>
+            <Icon name="cloud-circle" style={{color: 'white'}} />
+          </Row>
+        );
       } else if (item.shift === 'doctor') {
         console.log('doctor');
-        return {color: 'purple'};
+        return (
+          <Row
+            style={{backgroundColor: '#69aca4', padding: 1, borderRadius: 3}}
+            size={4}>
+            <Icon name="medkit" style={{color: 'white'}} />
+          </Row>
+        );
       } else if (item.shift === 'meeting') {
         console.log('meeting');
-        return {color: 'grey'};
+        return (
+          <Row
+            style={{backgroundColor: '#69aca4', padding: 1, borderRadius: 3}}
+            size={4}>
+            <Icon name="alarm" style={{color: 'white'}} />
+          </Row>
+        );
       } else if (item.shift === 'holiday') {
         console.log('holiday');
-        return {color: 'blue'};
+        return (
+          <Row
+            style={{backgroundColor: '#69aca4', padding: 1, borderRadius: 3}}
+            size={4}>
+            <Icon name="calendar" style={{color: 'white'}} />
+          </Row>
+        );
       } else {
         console.log('NULL -----------------');
-        return {color: 'transparent'};
+        return (
+          <Row
+            style={{
+              backgroundColor: 'transparent',
+              padding: 1,
+              borderRadius: 3,
+            }}
+            size={4}>
+            <Text style={{color: 'purple'}}></Text>
+          </Row>
+        );
       }
     };
     return (
       <View style={styles.item}>
         <Grid>
-          <Row style={{backgroundColor: '#635DB7'}} size={4}>
-            <Text style={styleColor(item)}>Test</Text>
-          </Row>
-          <Row style={{backgroundColor: '#00CE9F'}} size={1}>
+          {styleColor(item)}
+          <Row style={{backgroundColor: 'transparent'}} size={1}>
             <Text style={styles.itemText}>{item.date}</Text>
           </Row>
         </Grid>
